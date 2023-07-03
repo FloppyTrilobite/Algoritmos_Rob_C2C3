@@ -21,7 +21,7 @@ pool = [[],[],[],[],[],[],[],[],[],[]]
 
 cpd_peso  = 11 #capacidade máxima (peso)
 cpd_qtd = 4 #capacidade máxima (itens)
-qtd_ger = 25 #quantidade de gerações
+qtd_ger = 50 #quantidade de gerações
 qtd_pool = 10 #número de indivíduos na população
 
 qtd_itens = len(itens) #quantidade de itens
@@ -69,7 +69,7 @@ def mutate(a):
 
 #início (t=0)
 result = [[],[]] 
-for i in range (qtd_ger+1): #qtd_ger
+for i in range (qtd_ger): #qtd_ger
     #! Avaliar a população (rankear)
     ger = []
     peso_ger = 0
@@ -140,11 +140,14 @@ for i in range (qtd_ger+1): #qtd_ger
         #print(pool[a])
         pool[a] = mutate(pool[a])
 
+    #aux = assign_values(pool[0],itens)
+
     #fim da geração
     #print("\nvalor =", valor_ger/qtd_pool)
     #print("peso =", peso_ger/qtd_pool)
     result[0].append(peso_ger/qtd_pool)
     result[1].append(valor_ger/qtd_pool)
+    #result[2].append([aux[0],aux[1]])
 
 #resultados
 print ("\n",result,"\n")
